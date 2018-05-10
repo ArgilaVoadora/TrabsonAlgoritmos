@@ -1,21 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package trabalho;
 
-/**
- *
- * @author jvagu
- */
 public class Calculadora {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+    }
+    
+    public String extrairTermos(String expressao){
+        //Tem que criar a filaA, so coloquei a string pra n dar erro
+        String filaA = "Bolsonaro2018";
+        String exp = "";
+        String exp2 = "";
+        
+        exp = expressao;
+        
+        exp.replaceAll("[^0-9]", "!");
+        
+        for (int i = 0; i < expressao.length(); i++) {
+            if (!exp.substring(i, i).equals("!")) 
+                exp2 += exp.substring(i, i);
+            else{
+                filaA = exp2;
+                filaA = exp.substring(i, i);
+            }
+        }
+
+        return filaA;
     }
     
 }
