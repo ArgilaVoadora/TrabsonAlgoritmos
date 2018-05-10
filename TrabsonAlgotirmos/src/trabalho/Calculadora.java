@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication3;
+package trabalho;
 
 /**
  *
  * @author jvagu
  */
-public class JavaApplication3 {
+public class Calculadora {
 
     /**
      * @param args the command line arguments
