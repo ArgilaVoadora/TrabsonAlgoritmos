@@ -1,6 +1,6 @@
 package com.trabsonAlgoritmos.view;
 
-import trabalho.FilaVetor;
+import trabalho.Calculadora;
 
 public class MainView<T> extends javax.swing.JFrame {
 
@@ -75,50 +75,9 @@ public class MainView<T> extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCalcularActionPerformed
-        FilaVetor<T> fila = new FilaVetor<T>(0);
-        String equacao = txtEquacao.getText().replaceAll("\\s", "");
-        fila = carregaFila(equacao);
+        Calculadora c = new Calculadora();
+        c.extrairTermos(txtEquacao.getText());
     }//GEN-LAST:event_btCalcularActionPerformed
-
-    public FilaVetor<T> carregaFila(String equacao) {
-        FilaVetor<T> fila = new FilaVetor<T>(contTermos(equacao));
-        return fila;
-    }
-    
-    public int contTermos(String equacao) {
-        int total = 0;
-        char[] termos = equacao.toCharArray();
-        
-        for (int i = 0;i < termos.length;i++) {
-            if (verificaTermos(termos[i]))
-                total++;
-            else if (i != termos.length - 1) { 
-                if (verificaTermos(termos[i + 1])) {
-                    total++;
-                }
-            } else {
-                total++;
-            }
-        }
-        
-        return total;
-    }
-    
-    public boolean verificaTermos(char s) {
-        char[] termos = new char[6];
-        termos[0] = '+';
-        termos[1] = '-';
-        termos[2] = '*';
-        termos[3] = '/';
-        termos[4] = '(';
-        termos[5] = ')';
-        
-        for (int i = 0;i < termos.length;i++) {
-            if (s == termos[i])
-                return true;
-        }
-        return false;
-    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
